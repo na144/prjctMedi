@@ -15,6 +15,7 @@ namespace MediPrjct
         SqlCommand myCommand; //kommandorad
         SqlDataAdapter adapter; //adapter som fyller datasetet
         SqlConnection myConnection; //connectionsträngen
+
         SqlParameter workparameter1; //parametervariabler
         SqlParameter workparameter2;
         SqlParameter workparameter3;
@@ -26,7 +27,9 @@ namespace MediPrjct
         public dbAccess()
         { //Skapar en connectionsträng för att koppla sig till databasen
             myConnection = new SqlConnection(); // Byt här till din databas och till din MS-SQL server (obs. dubbla \\)
-            myConnection.ConnectionString = "Server=LAPTOP-B0P8Q1VE\\SQLEXPRESS;Database=dbMediABO;Trusted_Connection=True;";
+            myConnection.ConnectionString = "Server=LAPTOP-968N0DPK\\SQL2014EXPRESS;Database=dbMediABO;Trusted_Connection=True;";
+                // V - "Server=LAPTOP-B0P8Q1VE\\SQLEXPRESS;Database=dbMediABO;Trusted_Connection=True;";
+               
         }
 
         public bool validateUser(string username, string password)
@@ -119,6 +122,28 @@ namespace MediPrjct
             {
                 return false;
             }
+
+        }
+
+        public DataSet getDataByBDate(string BDate)
+        {
+            myCommand = new SqlCommand();
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spGetDataByBDate"; //Namnet på den lagrade proceduren i db
+
+            SqlParameter workparameter1 = new SqlParameter();
+            workparameter1 = myCommand.Parameters.Add("@BirthDate", SqlDbType.VarChar);
+            workparameter1.Value = BDate;
+       
+
+            ds = new DataSet();
+            adapter = new SqlDataAdapter();
+            adapter.SelectCommand = myCommand;
+
+            adapter.Fill(ds);
+            return ds;
+
 
         }
     }

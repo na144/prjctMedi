@@ -24,3 +24,16 @@ C:\Users\veron\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.csproj.GenerateRe
 C:\Users\veron\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.csproj.CoreCompileInputs.cache
 C:\Users\veron\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.exe
 C:\Users\veron\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.pdb
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\bin\Debug\MediPrjct.exe.config
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\bin\Debug\MediPrjct.exe
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\bin\Debug\MediPrjct.pdb
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.csprojAssemblyReference.cache
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.FrmLogin.resources
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.FrmRegNewDonar.resources
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.FrmRegNewDonation.resources
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.FrmStart.resources
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.Properties.Resources.resources
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.csproj.GenerateResource.cache
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.csproj.CoreCompileInputs.cache
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.exe
+C:\Users\Karin\Desktop\prjctMedi\MediPrjct\obj\Debug\MediPrjct.pdb

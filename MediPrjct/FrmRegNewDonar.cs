@@ -25,6 +25,18 @@ namespace MediPrjct
         private void btnSave_Click(object sender, EventArgs e)
         {
             Donar d = new Donar();
+                
+                /*txtBirthDate.Text,
+                txtFirstName.Text, 
+                txtLastName.Text,
+                txtAddress.Text,
+                txtCity.Text,
+                Int32.Parse(txtPostCode.Text),
+                txtPhoneNo.Text, 
+                cboBloodGroup.SelectedItem.ToString(),
+                cboGender.SelectedItem.ToString()
+                );  */
+
             d.FirstName = txtFirstName.Text;
             d.LastName = txtLastName.Text;
             d.BirthDate = txtBirthDate.Text;
@@ -33,7 +45,7 @@ namespace MediPrjct
             d.PostCode = Int32.Parse(txtPostCode.Text);
             d.City = txtCity.Text;
             d.BloodGroup = cboBloodGroup.SelectedItem.ToString();
-            d.Gender = cboGender.SelectedItem.ToString();
+            d.Gender = cboGender.SelectedItem.ToString(); 
 
             Boolean answer = db.InsertDonarToDB(d);
             if (answer == true)
@@ -64,6 +76,11 @@ namespace MediPrjct
             FrmStart objFrmStart = new FrmStart();
             this.Hide();
             objFrmStart.Show();
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -15,10 +15,10 @@ namespace MediPrjct
 
         public Donation()
         {
-            this.donationID = 0;
+         /*   this.donationID = 0;
             this.employeeID = 0;
             this.donarID = 0;
-            //this.dt = 0;
+            //this.dt = 0;     */
 
         }
 
@@ -27,7 +27,7 @@ namespace MediPrjct
             this.donationID = donatID;
             this.employeeID = empID;
             this.donarID = donarID;
-            this.dt = d;
+            this.dt = d;        //getDate.now() ?
         }
 
         public int DonationID
