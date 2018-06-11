@@ -26,7 +26,7 @@ namespace MediPrjct
         public dbAccess()
         { //Skapar en connectionsträng för att koppla sig till databasen
             myConnection = new SqlConnection(); // Byt här till din databas och till din MS-SQL server (obs. dubbla \\)
-            myConnection.ConnectionString = "Server=LAPTOP-N1P331T2\\SQLEXPRESS;Database=dbMediABO;Trusted_Connection=True;";
+            myConnection.ConnectionString = "Server=LAPTOP-B0P8Q1VE\\SQLEXPRESS;Database=dbMediABO;Trusted_Connection=True;";
         }
 
         public bool validateUser(string username, string password)

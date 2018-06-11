@@ -57,5 +57,10 @@ namespace MediPrjct
         {
             Application.Exit();
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
