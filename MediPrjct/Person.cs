@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediPrjct
 {
-    public abstract class Person    
+    public class Person    
     {
         private int id;
         private string birthDate;
@@ -14,12 +14,12 @@ namespace MediPrjct
         private string lastName;
 
         public Person()
-        {
+          {
             this.id = 0;
             this.birthDate = "";
             this.firstName = "";
-            this.lastName = "";
-        }
+            this.lastName = "";      //tomt ?
+        }   
 
         public Person(int id, string bDate, string fName, string lName)
         {
@@ -94,8 +94,8 @@ namespace MediPrjct
             this.postCode = 0;
             this.phoneNo = "";
             this.bloodGroup = "";
-            this.gender = "";
-        }
+            this.gender = "";   
+        } 
 
         public Donar(int id, string bDate, string fName, string lName, string adr, string city, int pCode, string pNo, string bGroup, string gen)
                        
@@ -190,7 +190,7 @@ namespace MediPrjct
         public Employee()
         {
             this.password = "";
-        }
+        } 
 
         public Employee(int id, string bDate, string fName, string lName, string pass)
         {
