@@ -15,25 +15,41 @@ namespace MediPrjct
     {
         DataSet dslokal = new DataSet();
         dbAccess db = new dbAccess();
+        Employee emp;
 
         public FrmLogin()
         {
             InitializeComponent();
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
            string username = txtUsername.Text;
            string password = txtPassword.Text;
+
            Boolean answer = db.validateUser(username, password);
             try
             {
                 if (answer == true)
                 {
-                    FrmStart objFrmStart = new FrmStart();
+                    emp = new Employee();
+                    dslokal = db.GetEmployee(username);
+                    emp.Id = Convert.ToInt32(dslokal.Tables[0].Rows[0].ItemArray[0]);
+                    emp.BirthDate = dslokal.Tables[0].Rows[0].ItemArray[1].ToString();
+                    emp.FirstName = dslokal.Tables[0].Rows[0].ItemArray[2].ToString();
+                    emp.LastName = dslokal.Tables[0].Rows[0].ItemArray[3].ToString();
+                    emp.Password = dslokal.Tables[0].Rows[0].ItemArray[4].ToString();
+
+                    string name = emp.FirstName + " " + emp.LastName;
+                    int id = emp.Id;
+                    //FrmLogin fl = new FrmLogin(emp);
+
+                    FrmStart objFrmStart = new FrmStart(emp);
                     this.Hide();
                     objFrmStart.Show();
                 }
+
                 else
                 {
                     MessageBox.Show("Invalid login.");
@@ -43,10 +59,32 @@ namespace MediPrjct
             {
                 MessageBox.Show(ex.ToString());
             }
-          
-
            
+
+
         }
+
+        /*private Employee getEmp(string username)
+        {
+            emp = new Employee();
+            dslokal = db.GetEmployee(username);
+            emp.Id = Convert.ToInt32(dslokal.Tables[0].Rows[0].ItemArray[0]);
+            emp.BirthDate = dslokal.Tables[0].Rows[0].ItemArray[1].ToString();
+            emp.FirstName = dslokal.Tables[0].Rows[0].ItemArray[2].ToString();
+            emp.LastName = dslokal.Tables[0].Rows[0].ItemArray[3].ToString();
+            emp.Password = dslokal.Tables[0].Rows[0].ItemArray[4].ToString();
+            return emp;
+        }*/
+
+        /*public String getEmpName()
+        {
+            return emp.FirstName + " " + emp.LastName;
+        }
+
+        public int getEmpId()
+        {
+            return emp.Id;
+        }*/
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {

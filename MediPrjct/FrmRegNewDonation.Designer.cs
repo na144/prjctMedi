@@ -85,6 +85,7 @@
             this.txtDonation1.Name = "txtDonation1";
             this.txtDonation1.Size = new System.Drawing.Size(196, 205);
             this.txtDonation1.TabIndex = 48;
+            this.txtDonation1.TextChanged += new System.EventHandler(this.txtDonation1_TextChanged);
             // 
             // btnEnter
             // 
@@ -115,6 +116,7 @@
             this.lblName.Size = new System.Drawing.Size(45, 17);
             this.lblName.TabIndex = 45;
             this.lblName.Text = "Namn";
+            this.lblName.Click += new System.EventHandler(this.lblName_Click);
             // 
             // lblTimeStampFrmRegNewDonation
             // 
@@ -131,12 +133,13 @@
             this.btnSaveDonation.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnSaveDonation.FlatAppearance.BorderSize = 3;
             this.btnSaveDonation.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveDonation.Location = new System.Drawing.Point(571, 580);
+            this.btnSaveDonation.Location = new System.Drawing.Point(570, 580);
             this.btnSaveDonation.Name = "btnSaveDonation";
             this.btnSaveDonation.Size = new System.Drawing.Size(200, 44);
             this.btnSaveDonation.TabIndex = 43;
             this.btnSaveDonation.Text = "Save";
             this.btnSaveDonation.UseVisualStyleBackColor = false;
+            this.btnSaveDonation.Click += new System.EventHandler(this.btnSaveDonation_Click);
             // 
             // btnCancelDonation
             // 
@@ -211,6 +214,7 @@
             this.Controls.Add(this.btnCancelDonation);
             this.Name = "FrmRegNewDonation";
             this.Text = "FrmRegNewDonation";
+            this.Load += new System.EventHandler(this.FrmRegNewDonation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

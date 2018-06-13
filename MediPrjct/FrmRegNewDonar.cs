@@ -13,13 +13,17 @@ namespace MediPrjct
 {
     public partial class FrmRegNewDonar : Form
     {
+        Employee emp;
         DataSet dslokal = new DataSet();
         dbAccess db = new dbAccess();
 
-        public FrmRegNewDonar()
+        public FrmRegNewDonar(Employee e)
         {
+            emp = new Employee();
+            emp = e;
             InitializeComponent();
             lblTimeStampFrmRegNewDonar.Text = DateTime.Now.ToString();
+            lblName.Text = "Logged in as: " + emp.FirstName + " " + emp.LastName;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -73,7 +77,7 @@ namespace MediPrjct
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FrmStart objFrmStart = new FrmStart();
+            FrmStart objFrmStart = new FrmStart(emp);
             this.Hide();
             objFrmStart.Show();
         }

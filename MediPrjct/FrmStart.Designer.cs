@@ -45,7 +45,7 @@
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(45, 17);
             this.lblName.TabIndex = 20;
-            this.lblName.Text = "Namn";
+            this.lblName.Text = "Name";
             // 
             // lblTimeStampFrmStart
             // 
@@ -129,6 +129,7 @@
             this.Controls.Add(this.btnRegNewDonar);
             this.Name = "FrmStart";
             this.Text = "FrmStart";
+            this.Load += new System.EventHandler(this.FrmStart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

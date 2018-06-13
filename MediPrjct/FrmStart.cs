@@ -12,15 +12,19 @@ namespace MediPrjct
 {
     public partial class FrmStart : Form
     {
-        public FrmStart()
+        Employee emp;
+        public FrmStart(Employee e)
         {
+            emp = new Employee();
+            emp = e;
             InitializeComponent();
             lblTimeStampFrmStart.Text = DateTime.Now.ToString();
+            lblName.Text = "Logged in as: " + emp.FirstName + " " + emp.LastName;
         }
 
         private void btnRegNewDonar_Click(object sender, EventArgs e)
         {
-            FrmRegNewDonar objFrmRegNewDonar = new FrmRegNewDonar();
+            FrmRegNewDonar objFrmRegNewDonar = new FrmRegNewDonar(emp);
             this.Hide();
             objFrmRegNewDonar.Show();
         }
@@ -34,12 +38,16 @@ namespace MediPrjct
 
         private void btnRegNewDonation_Click(object sender, EventArgs e)
         {
-            FrmRegNewDonation objFrmRegNewDonation = new FrmRegNewDonation();
+            FrmRegNewDonation objFrmRegNewDonation = new FrmRegNewDonation(emp);
             this.Hide();
             objFrmRegNewDonation.Show();
         }
 
         private void lblTimeStamp_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void FrmStart_Load(object sender, EventArgs e)
         {
 
         }

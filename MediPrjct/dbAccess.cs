@@ -15,8 +15,9 @@ namespace MediPrjct
         SqlCommand myCommand; //kommandorad
         SqlDataAdapter adapter; //adapter som fyller datasetet
         SqlConnection myConnection; //connectionsträngen
+        SqlDataReader dr;
 
-        SqlParameter workparameter1; //parametervariabler
+       SqlParameter workparameter1; //parametervariabler
         SqlParameter workparameter2;
         SqlParameter workparameter3;
         SqlParameter workparameter4;
@@ -28,8 +29,9 @@ namespace MediPrjct
         { //Skapar en connectionsträng för att koppla sig till databasen
             myConnection = new SqlConnection(); // Byt här till din databas och till din MS-SQL server (obs. dubbla \\)
             myConnection.ConnectionString = "Server=LAPTOP-968N0DPK\\SQL2014EXPRESS;Database=dbMediABO;Trusted_Connection=True;";
-                // V - "Server=LAPTOP-B0P8Q1VE\\SQLEXPRESS;Database=dbMediABO;Trusted_Connection=True;";
-               
+            // V - "Server=LAPTOP-B0P8Q1VE\\SQLEXPRESS;Database=dbMediABO;Trusted_Connection=True;";
+            // L - "LAPTOP-N1P331T2\\SQLEXPRESS;Database=dbMediABO;Trusted_Connection=True;";
+           
         }
 
         public bool validateUser(string username, string password)
@@ -146,5 +148,93 @@ namespace MediPrjct
 
 
         }
-    }
+
+        public bool RegisterDonation(Donation newDonation)
+        {
+            myCommand = new SqlCommand();
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spDonationBooking";
+
+            SqlParameter workparameter1 = new SqlParameter();
+            SqlParameter workparameter2 = new SqlParameter();
+            SqlParameter workparameter3 = new SqlParameter();
+            SqlParameter workparameter4 = new SqlParameter();
+
+            
+            workparameter1 = myCommand.Parameters.Add("@EmployeeID", SqlDbType.Int);
+            workparameter1.Value = newDonation.EmployeeID;
+
+            workparameter2 = myCommand.Parameters.Add("@DonarID", SqlDbType.Int);
+            workparameter2.Value = newDonation.DonarID;
+
+            workparameter3 = myCommand.Parameters.Add("@Date", SqlDbType.DateTime);
+            workparameter3.Value = newDonation.Dt;
+
+            workparameter4 = myCommand.Parameters.Add("@AntalRader", SqlDbType.Int);
+            workparameter4.Direction = ParameterDirection.Output;
+
+            myConnection.Open();
+            myCommand.ExecuteNonQuery();
+            int svar = Convert.ToInt32(workparameter4.SqlValue.ToString());
+            myConnection.Close();
+
+            if (svar ==1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public DataSet GetEmployee(string bDate)
+        {
+            myCommand = new SqlCommand();
+            myCommand.Connection = myConnection;
+            myCommand.CommandText ="SELECT * FROM dbo.tblEmployee WHERE BirthDate = '" + bDate +"'";
+            myCommand.CommandType = CommandType.Text;
+            ds = new DataSet();
+            adapter = new SqlDataAdapter();
+            adapter.SelectCommand = myCommand;
+            myConnection.Open();
+            myCommand.ExecuteNonQuery();
+
+            
+            
+            adapter.Fill(ds);
+            myConnection.Close();
+            return ds;
+
+            /*
+            Employee em = new Employee();
+            myConnection.Open();
+            myCommand = new SqlCommand("SELECT * FROM dbo.tblEmployee WHERE BirthDate = " + bDate, myConnection);
+            dr = myCommand.ExecuteReader();
+
+           if (dr.Read())
+            {
+                
+
+                em.Id = Convert.ToInt32(dr[0]);
+                em.BirthDate = dr[1].ToString();
+                em.FirstName = dr[2].ToString();
+                em.LastName = dr[3].ToString();
+                em.Password = dr[4].ToString();
+                myConnection.Close();
+
+                return em;
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Hahaha");
+
+                myConnection.Close();
+                return em;
+            }   */ 
+           
+        }  
+        }
 }
